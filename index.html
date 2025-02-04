@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es/mx">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gestión de refacciones</title>
+    <link
+      rel="stylesheet"
+      href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css"
+    />
+
+    <link rel="stylesheet" href="./css/styles.css" />
+  </head>
+
+  <body>
+    <div data-role="page" id="home">
+      <div data-role="header">
+        <h1>Gestión de refacciones para motocicletas</h1>
+      </div>
+      <div data-role="content">
+        <!--Formulario para agregar refacciones-->
+        <section class="form-section">
+            <h2>Agregar refacción</h2>
+            <form id="refaccion-form">
+              <label for="nombre">Nombre:</label>
+              <input type="text" id="nombre" name="nombre" required />
+              <label for="categoria">Categoría:</label>
+              <select id="categoria" name="categoria" required>
+                <option value="">Seleccione una categoría</option>
+                <option value="Motor">Motor</option>
+                <option value="Transmision">Transmisión</option>
+                <option value="Frenos">Frenos</option>
+              </select>
+              <label for="precio">Precio:</label>
+              <input type="number" id="precio" name="precio" step="0.01" required />
+              <button type="submit" data-role="button" data-theme="b">Agregar refacción</button>
+            </form>
+          </section>
+          <!--listado de refacciones-->
+          <section class="list-section">
+            <h2>Listado de refacciones</h2>
+            <table id="refacciones-table" data-role="table" class="ui-responsive">
+              <thead>
+                <tr>
+                  <th>Nombre</th>
+                  <th>Categoría</th>
+                  <th>Precio</th>
+                  <th>Acciones</th>
+                </tr>
+              </thead>
+              <tbody id="refacciones-tbody"></tbody>
+            </table>
+            <button id="reset-btn" data-role="button" data-theme="b">Limpiar Lista</button>
+          </section>
+      </div>
+      <!-- Modal para editar -->
+      <div id="edit-modal" data-role="popup" class="ui-content" style="max-width: 400px;">
+
+        <div class="modal-content">
+          <h2>Editar Refacción</h2>
+          <form id="edit-form">
+            <label for="edit-nombre">Nombre:</label>
+            <input type="text" id="edit-nombre" name="edit-nombre" required />
+            <label for="edit-categoria">Categoría:</label>
+            <select id="edit-categoria" name="edit-categoria" required>
+              <option value="Motor">Motor</option>
+              <option value="Transmision">Transmisión</option>
+              <option value="Frenos">Frenos</option>
+            </select>
+            <label for="edit-precio">Precio:</label>
+            <input
+              type="number"
+              id="edit-precio"
+              name="edit-precio"
+              step="0.01"
+              required
+            />
+            <button type="submit" data-role="button" data-theme="b">Guardar Cambios</button>
+          </form>
+          
+          <button id="close-modal" data-role="button" data-theme="b">Cerrar</button>
+        </div>
+      </div>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <script src="./js/jscript.js"></script>
+  </body>
+</html>
