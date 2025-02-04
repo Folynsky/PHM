@@ -7,7 +7,7 @@
   "main": "index.js",
   "devDependencies": {},
   "scripts": {
-    "start": "npx json-server --watch db.json --host 0.0.0.0 --port $PORT",
+    "start": "npx --yes json-server --watch db.json --host 0.0.0.0 --port $PORT",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
