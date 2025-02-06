@@ -29,6 +29,12 @@
       "nombre": "Toilet",
       "categoria": "Transmision",
       "precio": "123456"
+    },
+    {
+      "nombre": "Prueba",
+      "categoria": "Edit Nuevo",
+      "precio": "2",
+      "id": "23c6"
     }
   ]
 }

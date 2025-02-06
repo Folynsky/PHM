@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es/mx">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Refacciones</title>
+    <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+    <link rel="stylesheet" href="./css/styles.css">
+</head>
+<body>
+    <!-- Pantalla Principal -->
+    <div data-role="page" id="home">
+        <div data-role="header">
+            <h1>Gestión de Refacciones</h1>
+        </div>
+        <div data-role="content">
+            <button id="abrir-agregar" data-role="button" data-theme="b">Agregar Refacción</button>
+            <table id="refacciones-table" data-role="table" class="ui-responsive">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Categoría</th>
+                        <th>Precio</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody id="refacciones-tbody"></tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Pantalla Agregar/Editar Refacción -->
+    <div data-role="page" id="formulario">
+        <div data-role="header">
+            <h1 id="form-title">Agregar Refacción</h1>
+        </div>
+        <div data-role="content">
+            <form id="refaccion-form">
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" name="nombre" required>
+                
+                <label for="categoria">Categoría:</label>
+                <input type="text" id="categoria" name="categoria" required>
+                
+                <label for="precio">Precio:</label>
+                <input type="number" id="precio" name="precio" required>
+                
+                <input type="hidden" id="refaccion-id" name="id">
+                
+                <button type="submit" data-role="button" data-theme="b">Guardar</button>
+                <button type="button" id="cancelar" data-role="button">Cancelar</button>
+            </form>
+        </div>
+    </div>
+    
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <script src="./js/jscriptv2.js"></script>
+</body>
+</html>
