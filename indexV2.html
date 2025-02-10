@@ -8,10 +8,28 @@
     <link rel="stylesheet" href="./css/styles.css">
 </head>
 <body>
+    <!-- Pantalla de Login -->
+<div data-role="page" id="login">
+    <div data-role="header">
+        <h1>Inicio de Sesión</h1>
+    </div>
+    <div data-role="content">
+        <form id="login-form">
+            <label for="username">Usuario:</label>
+            <input type="text" id="username" name="username" required>
+            
+            <label for="password">Contraseña:</label>
+            <input type="password" id="password" name="password" required>
+            
+            <button type="submit" data-role="button" data-theme="b">Ingresar</button>
+        </form>
+    </div>
+</div>
     <!-- Pantalla Principal -->
     <div data-role="page" id="home">
         <div data-role="header">
             <h1>Gestión de Refacciones</h1>
+            <a href="#" id="logout" data-role="button" data-icon="power" class="ui-btn-right">Salir</a>
         </div>
         <div data-role="content">
             <button id="abrir-agregar" data-role="button" data-theme="b">Agregar Refacción</button>

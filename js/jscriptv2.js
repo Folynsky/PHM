@@ -25,7 +25,7 @@ $(document).ready(function () {
         if (id) {
             // Si hay un ID, actualizar refacción
             $.ajax({
-                url: `http://localhost:3001/refacciones/${id}`,
+                url: `https://refacciones-6p2k.onrender.com/refacciones/${id}`,
                 method: "PUT",
                 contentType: "application/json",
                 data: JSON.stringify(refaccion),
@@ -41,7 +41,7 @@ $(document).ready(function () {
         } else {
             // Si no hay ID, agregar nueva refacción
             $.ajax({
-                url: "http://localhost:3001/refacciones",
+                url: "https://refacciones-6p2k.onrender.com/refacciones",
                 method: "POST",
                 contentType: "application/json",
                 data: JSON.stringify(refaccion),
@@ -60,7 +60,7 @@ $(document).ready(function () {
 
 function cargarRefacciones() {
     $.ajax({
-        url: "http://localhost:3001/refacciones",
+        url: "https://refacciones-6p2k.onrender.com/refacciones",
         method: "GET",
         success: function (data) {
             const tbody = $("#refacciones-tbody");
@@ -100,7 +100,7 @@ function abrirVentanaEditar(id, nombre, categoria, precio) {
 function eliminarRefaccion(id) {
     if (confirm("¿Estás seguro de que deseas eliminar esta refacción?")) {
         $.ajax({
-            url: `http://localhost:3001/refacciones/${id}`,
+            url: `https://refacciones-6p2k.onrender.com/refacciones/${id}`,
             method: "DELETE",
             success: function () {
                 alert("Refacción eliminada correctamente.");
@@ -112,3 +112,38 @@ function eliminarRefaccion(id) {
         });
     }
 }
+
+$(document).ready(function () {
+    verificarSesion();
+
+    // Manejo del formulario de login
+    $('#login-form').submit(function (event) {
+        event.preventDefault();
+
+        const usuario = $('#username').val();
+        const password = $('#password').val();
+
+        // Simulación de credenciales (puedes cambiar esto a una API real)
+        if (usuario === "admin" && password === "1234") {
+            localStorage.setItem("usuario", usuario); // Guardar sesión
+            $.mobile.changePage('#home'); // Redirigir a la pantalla principal
+        } else {
+            alert("Usuario o contraseña incorrectos.");
+        }
+    });
+
+    // Cerrar sesión
+    $('#logout').click(function () {
+        localStorage.removeItem("usuario"); // Eliminar sesión
+        $.mobile.changePage('#login'); // Redirigir a login
+    });
+
+    // Función para verificar si el usuario está autenticado
+    function verificarSesion() {
+        if (!localStorage.getItem("usuario")) {
+            $.mobile.changePage('#login'); // Redirigir al login si no hay sesión
+        }
+    }
+
+});
+
